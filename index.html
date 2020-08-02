@@ -53,15 +53,23 @@
       integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
       crossorigin="anonymous"
     ></script>
-
     <script>
       // Base URL of the server where contig-alias is deployed
-      url = "http://192.168.0.100:8080/contig-alias/";
+      url = "http://192.168.0.100:8080/contig-alias/v1/";
 
       // Setup buttom redirrection to Swagger page
-      $(document).ready(function () {
+      $(() => {
         $("#swagger-redirect-button").attr("href", url);
       });
+
+      const Http = new XMLHttpRequest();
+      const uxx = url + "assemblies/GCA_000001405.10";
+      Http.open("GET", uxx);
+      Http.send();
+
+      Http.onreadystatechange = (e) => {
+        console.log(Http.responseText);
+      };
     </script>
   </body>
 </html>
