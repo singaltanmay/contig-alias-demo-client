@@ -55,21 +55,107 @@
     ></script>
     <script>
       // Base URL of the server where contig-alias is deployed
-      url = "http://192.168.0.100:8080/contig-alias/v1/";
+      // url = "http://192.168.0.100:8080/contig-alias/v1/";
 
-      // Setup buttom redirrection to Swagger page
-      $(() => {
-        $("#swagger-redirect-button").attr("href", url);
-      });
+      // // Setup buttom redirrection to Swagger page
+      // $(() => {
+      //   $("#swagger-redirect-button").attr("href", url);
+      // });
 
-      const Http = new XMLHttpRequest();
-      const uxx = url + "assemblies/GCA_000001405.10";
-      Http.open("GET", uxx);
-      Http.send();
+      // // const Http = new XMLHttpRequest();
+      // const uxx = url + "assemblies/GCA_000001405.10";
+      // // Http.open("GET", uxx);
+      // // Http.send();
 
-      Http.onreadystatechange = (e) => {
-        console.log(Http.responseText);
-      };
+      // // Http.onreadystatechange = (e) => {
+      // //   console.log(Http.responseText);
+      // // };
+
+      // // Example POST method implementation:
+      // async function getData() {
+      // Default options are marked with *
+      //   const response = await fetch(
+      //     "192.168.0.100:8080/contig-alias/v1/assemblies/GCA_000001405.10",
+      //     {
+      //       method: "GET", // *GET, POST, PUT, DELETE, etc.
+      //       mode: "no-cors", // no-cors, *cors, same-origin
+      //       cache: "default", // *default, no-cache, reload, force-cache, only-if-cached
+      //       credentials: "omit", // include, *same-origin, omit
+      //       // headers: {
+      //       //   "Content-Type": "application/json",
+      //       //   // 'Content-Type': 'application/x-www-form-urlencoded',
+      //       // },
+      //       redirect: "follow", // manual, *follow, error
+      //       referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+      //       // body: JSON.stringify(data), // body data type must match "Content-Type" header
+      //     }
+      //   );
+      //   return response.json(); // parses JSON response into native JavaScript objects
+      // }
+
+      // $(() => {
+      //   res = getData();
+      //   res.then((data) => {
+      //     console.log(res);
+      //     // console.log(data);
+      //   });
+      // });
+
+      // $(() => {
+      //   x = fetch(`http://jsonplaceholder.typeincode.com/users`, {
+      //     method: "GET",
+      //     mode: "no-cors",
+      //   })
+      //     .then(function (res) {
+      //       return res.json();
+      //     })
+      //     .then(function (data) {
+      //       console.log("the data", data);
+      //     })
+      //     .catch((e) => {
+      //       console.log(e);
+      //     });
+      //   console.log(x);
+
+      //   async function getData() {
+      //     const response = await fetch(
+      //       "http://192.168.0.100:8080/contig-alias/v1/assemblies/GCA_000001405.10",
+      //       {
+      //         method: "GET", // *GET, POST, PUT, DELETE, etc.
+      //         mode: "no-cors", // no-cors, *cors, same-origin
+      //         cache: "default", // *default, no-cache, reload, force-cache, only-if-cached
+      //         credentials: "omit", // include, *same-origin, omit
+      //         // headers: {
+      //         //   "Content-Type": "application/json",
+      //         //   // 'Content-Type': 'application/x-www-form-urlencoded',
+      //         // },
+      //         redirect: "follow", // manual, *follow, error
+      //         referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+      //         // body: JSON.stringify(data), // body data type must match "Content-Type" header
+      //       }
+      //     );
+      //     return response.json();
+      //   }
+
+      //   getData();
+      // });
+
+      fetch(
+        `http://192.168.0.100:8080/contig-alias/v1/assemblies/GCA_000001405.10/`,
+        {
+          mode: "no-cors",
+        }
+      )
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          console.log("the data", data);
+        });
+
+      // postData("https://example.com/answer", { answer: 42 }).then((data) => {
+      //   console.log(data); // JSON data parsed by `data.json()` call
+      // });
     </script>
   </body>
 </html>
